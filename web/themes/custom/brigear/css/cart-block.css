@@ -1,0 +1,240 @@
+/* 
+	Default
+ */
+.hide {
+	display: none;
+}
+
+div {
+	font-size: 12px;
+}
+
+.cart-block--contents {
+	width: auto !important;
+	margin-top: 8px;
+}
+
+.checkout-cart-block-wrapper {
+	width: 476px;
+	height: auto;
+	padding: 20px;
+	border: 1px solid #c4c4c4;
+	background-color: #fcfcfc;
+	right: 0;
+}
+
+/* ==================
+	Header
+*/
+.checkout-cart-block-header {
+
+}
+
+.checkout-cart-block-header h2 {
+	color: #C75724;
+	text-transform: uppercase;
+	font-size: 18px;
+    font-weight: 700
+}
+
+
+
+
+/* ==================
+	List items
+*/
+.checkout-cart-block-listItems {
+
+}
+
+.checkout-cart-block-listItems-item {
+    border-bottom: 1px solid #efefef;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.checkout-cart-block-listItems-item:first-child {
+	border-top: 1px solid #9b9b9b;
+	border-bottom-color: #efefef;
+}
+
+.checkout-cart-block-listItems-item:last-child {
+	border-bottom-color: #9b9b9b;
+}
+
+.checkout-cart-block-listItems-item-thumbnail {
+	display: block;
+	width: 90px;
+	height: 90px;
+	overflow: hidden; 
+	padding: 0;
+}
+
+.checkout-cart-block-listItems-item-thumbnail img {
+	object-fit: contain;
+	object-position: center;
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.checkout-cart-block-listItems-item-details {
+	display: block;
+	padding: : 0 15px 0 15px;
+	color: #9b9b9b;
+	font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: .4px;
+}
+
+.checkout-cart-block-listItems-item-details div {
+	line-height: 18px;
+}
+
+.checkout-cart-block-listItems-item-details span {
+	margin-right: 3px;
+}
+
+.checkout-cart-block-listItems-item-details a {
+	color: #666 !important;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: .65px;
+    display: block;
+    line-height: 22px;
+}
+
+.checkout-cart-block-listItems-item-quantity {
+	margin-top: 2px;
+}
+
+.checkout-cart-block-listItems-item-quantitySelect {
+    position: relative;
+}
+
+.checkout-cart-block-listItems-item-quantitySelect select {
+	-webkit-appearance: none;
+    border: 1px solid #dfdfdf;
+    border-radius: 0;
+    color: #9b9b9b;
+    background-color: #fff;
+    min-width: 50px;
+    line-height: 20px;
+    font-size: 13px;
+    padding: 0 3px;
+}
+
+.checkout-cart-block-listItems-item-quantitySelect:before {
+    border-bottom: 5px solid #dfdfdf;
+    transform: translateY(-7px);
+    display: block;
+    content: " ";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    pointer-events: none;
+}
+
+.checkout-cart-block-listItems-item-quantitySelect:after {
+    border-top: 5px solid #dfdfdf;
+    transform: translateY(0);
+    display: block;
+    content: " ";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    pointer-events: none;
+}
+
+.checkout-cart-block-listItems-item-price {
+	position: absolute;
+    right: 0;
+    bottom: 8px;
+    text-align: right;
+}
+
+.checkout-cart-block-listItems-item-price .currency{
+	color: black;
+	font-size: 13px;
+    font-weight: 700;
+}
+
+.checkout-cart-block-listItems-item-remove {
+	position: absolute;
+    top: 8px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.checkout-cart-block-listItems-item-remove span {
+    position: absolute;
+	width: 18px;
+    height: 1px;
+    background: #333;
+    top: 50%;
+    left: 50%;
+}
+
+.checkout-cart-block-listItems-item-remove span:first-child {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.checkout-cart-block-listItems-item-remove span:last-child {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+/* ==================
+	Subtotal
+*/
+.checkout-cart-block-subTotal {
+	font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: .5px;
+    line-height: 40px;
+}
+
+.checkout-cart-block-subTotal-title {
+	font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: .5px;
+    line-height: 40px;
+}
+
+.checkout-cart-block-subTotal-currency {
+	float: right;
+}
+
+
+/* ==================
+	Check-out Button
+*/
+.checkout-cart-block-checkout {
+   
+}
+
+.checkout-cart-block-checkout-button {
+	text-transform: uppercase;
+    font-size: 13px;
+    display: block;
+    color: #fff!important;
+    background: #c75724;
+    text-decoration: none;
+    text-align: center;
+    line-height: 35px;
+    border: 0;
+    width: 100%;
+    font-weight: 700;
+}
