@@ -120,22 +120,27 @@ function brigear_preprocess_commerce_cart_block(&$variables) {
 
 	// Item
 	$cart_data['items'] = array();
-	foreach($cart->getItems() as $cart_item) {
-		$variation = $cart_item->getPurchasedEntity();
-		$item = array(
-			'url' => $variation->toUrl(),
-			'product_url' => $variation->getProduct()->toUrl(),
-			'title' => $variation->getProduct()->getTitle(),
-			'main_image' => $variation->get('field_main_image')->entity->uri->value,
-			'color' => $variation->getAttributeValue('attribute_color'),
-			'quantity' => (int) $cart_item->getQuantity(),
-			'unit_price' => $cart_item->getUnitPrice()->toArray()
-		);
-		array_push($cart_data['items'], $item);
+	if($cart) {
+		foreach($cart->getItems() as $cart_item) {
+			$variation = $cart_item->getPurchasedEntity();
+			$item = array(
+				'url' => $variation->toUrl(),
+				'product_url' => $variation->getProduct()->toUrl(),
+				'title' => $variation->getProduct()->getTitle(),
+				'main_image' => $variation->get('field_main_image')->entity->uri->value,
+				'color' => $variation->getAttributeValue('attribute_color'),
+				'quantity' => (int) $cart_item->getQuantity(),
+				'unit_price' => $cart_item->getUnitPrice()->toArray()
+			);
+			array_push($cart_data['items'], $item);
+		}
 	}
 
 	// Total
-	$cart_data['subtotal'] = $cart->getSubtotalPrice()->toArray();
+	$cart_data['subtotal'] = array('number' => 0, 'currency_code' => 'USD');
+	if($cart) {
+		$cart_data['subtotal'] = $cart->getSubtotalPrice()->toArray();
+	}
 
 
 	// Export
