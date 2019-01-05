@@ -1,0 +1,12 @@
+<div {{ attributes
+       .addClass(['jumbotron', 'jumbotron-fluid', 'main-banner'])
+       .setAttribute('style', 'background-image: url("' ~ file_url(content.field_image.0['#item'].entity.uri.value) ~ '")' ) }}>
+  <div class="container">
+  	<div class="row">
+  		<div class="col text-center">
+	  		<h1 class="display-4">{{ content.field_title.0 }}</h1>
+    		<a class="main-banner-content-button" href="{{ path('view.shop.page_1') }}" role="button">{{ content.field_button_text.0 }}</a>
+  		</div>
+  	</div>
+  </div>
+</div>

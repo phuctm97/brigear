@@ -1,0 +1,41 @@
+popper:
+  js:
+    js/popper.js: {minified: true}
+  dependencies:
+    - core/jquery
+
+bootstrap:
+  css:
+    theme:
+      css/bootstrap.css: {minified: true}
+  js:
+    js/bootstrap.js: {minified: true}
+  dependencies:
+    - core/jquery
+    - brigear/popper
+
+youtube-player:
+  js:
+    https://www.youtube.com/iframe_api: {type: external, minified: true}
+
+global-fonts:
+  css:
+    theme:
+      https://fonts.googleapis.com/css?family=Lato:300,400,700: {type: external, minified: true}
+      https://fonts.googleapis.com/css?family=PT+Serif:400,700: {type: external, minified: true}
+
+global-styling:
+  css:
+    theme:
+      css/brigear.css: {}
+  dependencies:
+    - brigear/bootstrap
+    - brigear/global-fonts
+
+global-scripts:
+  js:
+    js/brigear.js: {}
+  dependencies:
+    - brigear/bootstrap
+    - brigear/global-fonts
+    - brigear/youtube-player

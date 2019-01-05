@@ -1,0 +1,10 @@
+package: Brigear
+name: Brigear
+description: 'The core theme used for Brigear e-commerce site.'
+version: VERSION
+type: theme
+screenshot: screenshot.png
+core: 8.x
+libraries:
+  - brigear/global-styling
+  - brigear/global-scripts

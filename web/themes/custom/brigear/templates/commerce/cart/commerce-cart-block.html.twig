@@ -1,0 +1,34 @@
+<div {{ attributes }}>
+  <div class="cart-block--summary">
+    <a class="cart-block--link__expand" href="{{ url }}">
+      <span class="cart-block--summary__icon">
+        <svg version="1.1" class="empty" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31 27" style="enable-background:new 0 0 31 27; height: 26px" xml:space="preserve">
+              <path class="st0" d="M24,18.8H10.3c-0.6,0-1.1-0.4-1.3-0.9L5.5,6.1L5.1,4.8c-0.3-1-1.1-1.6-2.1-1.7H1.3C0.6,3.2,0,2.7-0.1,2
+                s0.5-1.3,1.2-1.4c0.1,0,0.2,0,0.2,0h1.6c2.1,0,3.9,1.4,4.6,3.4L8,5.2l0.3,1h21c0.4,0,0.7,0.1,0.9,0.4c0.3,0.3,0.4,0.6,0.3,1L30,14
+                C29.6,16.9,27,19,24,18.8z M11.2,16.3H24c3.1,0,3.4-2.4,3.5-2.5l0.4-4.9H9L11.2,16.3z"></path>
+              <path class="st0" d="M13.6,27c-1.8,0-3.2-1.4-3.2-3.2c0-1.8,1.4-3.2,3.2-3.2s3.2,1.4,3.2,3.2c0,0,0,0,0,0C16.7,25.6,15.3,27,13.6,27
+                C13.6,27,13.6,27,13.6,27z M13.6,23.2c-0.3,0-0.6,0.3-0.6,0.6c0,0.3,0.3,0.6,0.6,0.6c0.3,0,0.6-0.3,0.6-0.6c0,0,0,0,0,0
+                C14.2,23.5,13.9,23.2,13.6,23.2z"></path>
+              <path class="st0" d="M25.3,27c-1.8,0-3.2-1.4-3.2-3.1c0-1.8,1.4-3.2,3.1-3.2c1.8,0,3.2,1.4,3.2,3.1c0,0,0,0,0,0
+                C28.4,25.6,27,27,25.3,27z M25.3,23.2c-0.3,0-0.6,0.3-0.6,0.6c0,0,0,0,0,0c0,0.3,0.3,0.6,0.6,0.6s0.6-0.3,0.6-0.6
+                C25.9,23.5,25.6,23.2,25.3,23.2z"></path>
+            </svg>
+      </span>
+      {% if count > 0 %}
+      <span class="badge badge-danger">{{ count }}</span>
+      {% endif %}
+    </a>
+  </div>
+  {% if content %}
+  <div class="cart-block--contents">
+    <div class="cart-block--contents__inner">
+      <div class="cart-block--contents__items">
+        {{ content }}
+      </div>
+      <div class="cart-block--contents__links">
+        {{ links }}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>

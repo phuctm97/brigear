@@ -1,0 +1,14 @@
+<div {{ attributes
+       .addClass('main-promotion-video') 
+       .setAttribute('style', 'background-image: url("' ~ directory ~ '/images/background-texture-repeat.jpg")' ) }}>
+       <div class="container">
+       	<div class="row justify-content-center">
+       		<div class="col">
+       			<p class="main-promotion-video-text">{{ content.field_text.0 }}</p>
+       			<div class="embed-responsive embed-responsive-16by9">
+	       			<div id="main-promotion-video" class="youtube-video" src="{{ content.field_youtube_video.0['#url'] }}" />
+       			</div>
+       		</div>
+       	</div>
+       </div>
+</div>

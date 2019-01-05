@@ -1,0 +1,59 @@
+<?php 
+
+use Drupal\Core\Template\Attribute;
+
+function brigear_preprocess(&$variables, $hook)
+{
+    $variables['base_path'] = base_path();
+}
+
+function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variables) {
+	$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->getPath();
+}
+
+function brigear_preprocess_commerce_product(&$variables) {
+    $variables['base_path'] = base_path();
+    
+	$product_variations = array();
+	$product_attributes = array();
+
+	$product = $variables['product_entity'];
+	foreach($product->getVariations() as $variation) {
+		$add_to_cart_link = $variables['product']['add_to_cart_links'][$variation->id()]['#url']->toString();
+		$variation_entity = array(
+			'id' => $variation->id(),
+			'sku' => $variation->getSku(),
+			'price' => $variation->getPrice(),
+			'add_to_cart_link' => $add_to_cart_link,
+			'attributes' => new Attribute(array(
+				'data-variation' => $variation->id()
+			))
+		);
+		
+		foreach($variation->getAttributeFieldNames() as $attr) {
+			$attr_value = $variation->getAttributeValue($attr);
+			$attr_value_id = $variation->getAttributeValueId($attr);
+
+			$variation_entity['attributes']['data-product-attribute-' . $attr] = $attr_value_id;
+			if(empty($attr_value)) continue;
+
+			if(!array_key_exists($attr, $product_attributes)) {
+				$product_attributes[$attr] = array(
+					'meta' => array(
+						'name' => $attr_value->getAttribute()->get('label'),
+						'type' => 'select',
+						'weight' => 0
+					),
+					'data' => array()
+				);
+			}
+			$product_attributes[$attr]['data'][$attr_value_id] = $attr_value;
+		}
+		array_push($product_variations, $variation_entity);
+	}
+
+	$variables['product_variations'] = $product_variations;
+	$variables['product_attributes'] = $product_attributes;
+}
+
+?>

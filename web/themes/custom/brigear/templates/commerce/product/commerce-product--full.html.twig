@@ -1,0 +1,74 @@
+<div id="brigear-data" data-page="commerce-product--full" style="display: none">
+	<div id="brigear-product-variations">
+		{% for variation in product_variations %}
+			<div {{ variation.attributes }}></div>
+		{% endfor %}
+	</div>
+	<div id="brigear-product-attributes">
+		{% for attr_name, attrs in product_attributes %}
+			<div data-product-attribute="{{ attr_name }}"></div>
+		{% endfor %}
+	</div>
+	{% if product_variations|length > 0 %}
+		<div id="brigear-selected-variation" data-variation="{{ product_variations[0].id }}"></div>
+	{% endif %}
+</div>
+<div {{ attributes.addClass('product-full-page') }}>
+	<div class="container pb-5">
+		<div class="row product-full-row">
+			<div class="col-md-8">
+       			<div class="embed-responsive embed-responsive-16by9">
+					<div id="product-video" class="youtube-video" src="{{product.field_youtube_video.0['#url'] }}"></div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h1>{{ product_entity.title.value }}</h1>
+				{% if product_variations|length > 0 %}
+					<div class="product-selector">
+						{% for attr_name, attrs in product_attributes %}
+							<div class="product-attribute-selector">
+							{% if attr_name == 'attribute_color' %}
+								<p>Select {{ attrs.meta.name }}:</p>
+								{% for key, color in attrs.data %}
+									<label class="product-color-radio-container">
+										<input type="radio" name="product-attribute-{{ attr_name }}" value="{{ key }}">
+										<span class="checkmark" style="background-color: {{ color.field_color_code.value }}" title="{{ color.name.value }}"></span>
+									</label>
+								{% endfor %}
+							{% else %}
+								<p>Select {{ attrs.meta.name }}:</p>
+								<select class="form-control product-attribute-select" name="product-attribute-{{ attr_name }}">
+									{% for key, option in attrs.data %}
+									<option value="{{ key }}">{{ option.name.value }}</option>
+									{% endfor %}
+								</select>
+							{% endif %}
+							</div>
+						{% endfor %}
+						{% for variation in product_variations %}
+							<div class="product-variation" data-variation="{{ variation.id }}">
+								<div class="product-price">
+									<p>Price:</p>
+									<p>{{ variation.price.number|number_format(1) }}<sup>{{ variation.price.currencyCode }}</sup></p>
+								</div>
+								<a href="{{ variation.add_to_cart_link }}" class="btn btn-add-to-cart">Add to cart</a>
+							</div>
+						{% endfor %}
+						<div class="product-summary">
+							{{ product.field_short_description }}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% set background_image = 'url("' ~ base_path ~ directory ~ '/images/background-texture-repeat.jpg")' %}
+	<div class="container" style="border: 1px solid #d2d3d4;"></div>
+	<div class="container-fluid full-description" style="background-image: {{ background_image }};">
+		<div class="row text-center">
+			<div class="col">
+				{{ product.field_full_description }}
+			</div>
+		</div>
+	</div>
+</div>

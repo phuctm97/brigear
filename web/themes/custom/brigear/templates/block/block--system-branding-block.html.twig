@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ */
+#}
+<a {{ attributes
+     .addClass(['brand', 'tablet-desktop'])
+     .setAttribute('href', path('<front>'))
+     .setAttribute('aria-label', site_name)
+     .setAttribute('data-auto-id', 'true') }}>
+	<img style="max-height: 48px" src="{{ site_logo }}">
+</a>
