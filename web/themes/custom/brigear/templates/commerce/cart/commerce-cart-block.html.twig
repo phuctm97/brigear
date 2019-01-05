@@ -1,3 +1,5 @@
+{{ attach_library('brigear/cart-block') }}
+
 <div {{ attributes }}>
   <div class="cart-block--summary">
     <a class="cart-block--link__expand" href="{{ url }}">
@@ -19,14 +21,79 @@
       {% endif %}
     </a>
   </div>
+
   {% if content %}
   <div class="cart-block--contents">
-    <div class="cart-block--contents__inner">
-      <div class="cart-block--contents__items">
-        {{ content }}
+    <div class="checkout-cart-block-wrapper">
+      <!-- 
+        Header
+      -->
+      <div class="checkout-cart-block-header">
+        <h2>Product added to cart</h2>
       </div>
-      <div class="cart-block--contents__links">
-        {{ links }}
+
+      <!-- 
+        List Items
+      -->
+      <div class="checkout-cart-block-listItems">
+        {% for item in cart_data.items %}
+          <div class="row checkout-cart-block-listItems-item">
+            <div class="col-4 checkout-cart-block-listItems-item-thumbnail">
+              <a href="{{ item.produ }}">
+                <img src="{{ file_url(item.main_image) }}">
+              </a>
+            </div>
+            <div class="col-8 checkout-cart-block-listItems-item-details">
+              <a href="{{ item.product_url }}">{{ item.title }}</a>
+              <div>
+                <span>Color:</span>
+                <span>{{ item.color.name.value }}</span>
+              </div>
+              <div class="hide">
+                <span>Size:</span>
+                <span></span>
+              </div>
+              <div>
+                <span>Qty:</span>
+                <span class="checkout-cart-block-listItems-item-quantitySelect">
+                  <select title="{{ item.quantity }} x {{ item.unit_price.number|number_format(1) }} {{ item.unit_price.currency_code }}">
+                    <option value="1">{{ item.quantity }}</option>
+                  </select>
+                </span>
+              </div>
+              <div class="checkout-cart-block-listItems-item-price" title="{{ item.quantity }} x {{ item.unit_price.number|number_format(1) }} {{ item.unit_price.currency_code }}">
+                <span class="currency">
+                  <span class="currency-monetary">{{ item.unit_price.number|number_format(1) }}</span>
+                  <span class="currency-code">{{ item.unit_price.currency_code }}</span>
+                </span>
+              </div>
+              <button class="checkout-cart-block-listItems-item-remove">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- 
+        Sub Total
+      -->
+      <div class="checkout-cart-block-subTotal">
+        <span class="checkout-cart-block-subTotal-title">Subtotal</span>
+        <span class="checkout-cart-block-subTotal-currency currency">
+                <span class="currency-monetary">{{ cart_data.subtotal.number }}</span>
+                <span class="currency-code">{{ cart_data.subtotal.currency_code }}</span>
+        </span>
+      </div>
+
+      <!-- 
+        Check out button
+      -->
+      <div class="checkout-cart-block-checkout">
+        <button class="checkout-cart-block-checkout-button">
+            Checkout
+        </button> 
       </div>
     </div>
   </div>

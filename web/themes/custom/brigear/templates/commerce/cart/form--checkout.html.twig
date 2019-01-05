@@ -1,0 +1,519 @@
+{{ attach_library('brigear/cart') }}
+
+<div class="checkout-layout">
+
+  {# HEADING #}
+  <div class="checkout-heading">
+    <h2> Secure Checkout </h2>
+  </div>
+
+
+
+  {# 
+    MAIN CONTENT 
+  #}
+  <div class="checkout-columns">
+
+    {# 
+      COL 1 - REVIEW YOUR ORDER 
+    #}
+    <div class="checkout-column-1">
+      {# 
+        COLUMN HEADING 
+      #}
+      <h2 class="checkout-column-heading">
+        <span class="checkout-column-heading-text">
+          <strong>1. Review your order </strong>
+        </span>
+        <span>(2 items)</span>
+      </h2>
+
+      <!-- 
+        LIST ITEMS 
+      -->
+      <div class="checkout-cart-block-listItems">
+        <div class="row checkout-cart-block-listItems-item">
+          <div class="checkout-cart-block-listItems-item-thumbnail">
+            <img src="https://bellroy.imgix.net/dynamic-assets/W1siZnUiLCJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vcHJvZHVjdC5pbWFnZXMuYmVsbHJveS5jb20vcHJvZHVjdF9pbWFnZXMvaW1hZ2VzLzAwMC8wMDIvODEyL29yaWdpbmFsLzgwNjA3YjI4M2Q4ZWU1ZTlhY2FkODdlZjk5ZDlmODQzODEwMTU2MDY0ZjAwNDdlNThmNjcyYTEyZjkzM2FkODIuanBnIl1d/15fa9fb8571f9366/80607b283d8ee5e9acad87ef99d9f843810156064f0047e58f672a12f933ad82.jpg">
+          </div>
+          <div class="col checkout-cart-block-listItems-item-details">
+            <a href="#">Note Sleeve</a>
+            <div>
+              <span>Color:</span>
+              <span>Caramel</span>
+            </div>
+            <div class="">
+              <span>Finish:</span>
+              <span>Leather / RFID</span>
+            </div>
+            <div class="hide">
+              <span>Size:</span>
+              <span></span>
+            </div>
+            <div>
+              <span>Qty:</span>
+              <span class="checkout-cart-block-listItems-item-quantitySelect">
+                <select title="1 x $95 USD">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </span>
+            </div>
+            <div class="checkout-cart-block-listItems-item-price" title="1 x $95 USD">
+              <span class="currency">
+                <span class="currency-monetary">$95</span>
+                <span class="currency-code">USD</span>
+              </span>
+            </div>
+            <button class="checkout-cart-block-listItems-item-remove">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="row checkout-cart-block-listItems-item">
+          <div class="checkout-cart-block-listItems-item-thumbnail">
+            <img src="https://bellroy.imgix.net/dynamic-assets/W1siZnUiLCJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vcHJvZHVjdC5pbWFnZXMuYmVsbHJveS5jb20vcHJvZHVjdF9pbWFnZXMvaW1hZ2VzLzAwMC8wMDIvODEyL29yaWdpbmFsLzgwNjA3YjI4M2Q4ZWU1ZTlhY2FkODdlZjk5ZDlmODQzODEwMTU2MDY0ZjAwNDdlNThmNjcyYTEyZjkzM2FkODIuanBnIl1d/15fa9fb8571f9366/80607b283d8ee5e9acad87ef99d9f843810156064f0047e58f672a12f933ad82.jpg">
+          </div>
+          <div class="col checkout-cart-block-listItems-item-details">
+            <a href="#">Note Sleeve</a>
+            <div>
+              <span>Color:</span>
+              <span>Caramel</span>
+            </div>
+            <div class="">
+              <span>Finish:</span>
+              <span>Leather / RFID</span>
+            </div>
+            <div class="hide">
+              <span>Size:</span>
+              <span></span>
+            </div>
+            <div class="checkout-cart-block-listItems-item-quantity">
+              <span>Qty:</span>
+              <span class="checkout-cart-block-listItems-item-quantitySelect">
+                <select title="1 x $95 USD">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </span>
+            </div>
+            <div class="checkout-cart-block-listItems-item-price" title="1 x $95 USD">
+              <span class="currency">
+                <span class="currency-monetary">$95</span>
+                <span class="currency-code">USD</span>
+              </span>
+            </div>
+            <button class="checkout-cart-block-listItems-item-remove">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+      {# 
+        SUBTOTAL 
+      #}
+      <div class="checkout-subtotal">
+        <span>SUBTOTAL</span>
+        <div>
+          <span class="currency-monetary">$179</span>
+          <span class="currency-code">USD</span>
+        </div>
+      </div>
+
+
+
+      {# 
+        SHIPPING TO 
+      #}
+      <div class="checkout-shipping-to">
+        <h3 class="checkout-shipping-to-heading">Shipping to:</h3>
+        <div class="row checkout-shipping-to-country">
+          <div class="col-1">
+            <span>VN</span>
+          </div>
+          <div class="col-11">
+             <span class="">
+                <select title="1" class="form-control checkout-shipping-to-country-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </span>
+          </div>
+        </div>
+      </div>
+
+
+
+      {# 
+        HEADING SMALL 
+      #}
+      <div class="checkout-heading-small">
+        <h2>
+          <span class="checkout-column-heading-text">Select delivery:</span>
+        </h2>
+      </div>
+
+
+
+      {# 
+        SHIPPING OPTION 
+      #}
+      <div class="checkout-shipping-option">
+        <div class="checkout-shipping-option-options">
+          {# EACH OPTION #}
+          <div class="checkout-shipping-option-other checkout-shipping-option-selected">
+            <div class="checkout-shipping-option-charge">
+              <span class="currency-monetary">
+                <strong>$6</strong>
+              </span>
+              <span class="currency-code">
+                <strong>USD</strong>
+              </span>
+            </div>
+
+            <div class="checkout-shipping-option-translation">
+              <span>
+                <strong>Express</strong>
+              </span>
+              <span>(2–8 business days, tracking)</span>
+            </div>
+
+            <div class="checkout-shipping-option-radio">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+      {# 
+        SHIPPING MODAL
+      #}
+      <div class="checkout-shipping-modal">
+        <a class="checkout-shipping-modal-more-info">Delivery rate is calculated according to item size.</a>
+      </div>
+    </div>
+
+
+
+    {# 
+      COL 2 - DELIVERY ADDRESS 
+    #}
+    <div class="checkout-column-2">
+      {# 
+        COLUMN HEADING 
+      #}
+      <h2 class="checkout-column-heading">
+        <span class="checkout-column-heading-text">
+          <strong>2. DELIVERY ADDRESS </strong>
+        </span>
+      </h2>
+
+      <div class="checkout-fields">
+        <div class="checkout-fields-all-required">All fields required</div>
+
+        <div class="checkout-field-section checkout-field-section-shipping">
+          {# 
+            FIRST NAME
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-first-name">
+            <label>First name*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="shipping_first_name" autocomplete="shipping given-name" placeholder="">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+
+
+          {# 
+            LAST NAME 
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-last-name">
+            <label>Last name*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="shipping_last_name" autocomplete="shipping family-name" placeholder="">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+
+
+          {# 
+            EMAIL 
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-billing-email">
+            <label>Email address*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="billing-email" autocomplete="billing email" placeholder="levogiakhang@gmail.com">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+
+
+          {# 
+            PHONE NUMBER 
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-phone-number">
+            <label>Telephone*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="shipping_phone_number" autocomplete="shipping tel" placeholder="">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+
+
+          {# 
+            DELIVERY ADDRESS 
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-street-address-one">
+            <label>Delivery address*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="shipping_street_address_1" autocomplete="shipping street-address address-line1"
+                   placeholder="e.g. Unit 1, 123 Main Street">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-street-address-two">
+            <input type="text" id="shipping_street_address_2" autocomplete="shipping address-line2" placeholder="">
+          </div>
+
+
+
+          {# 
+            TOWN 
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-city">
+            <label>Suburb/town*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="shipping_city" autocomplete="shipping address-level2" placeholder="">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+
+
+          {# 
+            STATE 
+          #}
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-region">
+            <label>State/territory*</label>
+            <span class="checkout-field-wrapper-select-wrapper">
+            <span class="checkout-field-wrapper-select-wrapper-trimmed-value"> </span>
+            <select class="checkout-field-wrapper-error" id="shipping_state" autocomplete="shipping address-level1">
+              <option> </option>
+              <option value="44">An Giang</option>
+              <option value="72">Dak Nong</option>
+              <option value="30">Gia Lai</option>
+              <option value="73">Hau Giang</option>
+              <option value="65">Ho Chi Minh City</option>
+              <option value="71">Huyen Dien Bien</option>
+            </select>
+          </span>
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-postcode">
+            <label>Postcode*</label>
+            <input class="checkout-field-wrapper-error" type="text" id="shipping_postcode" autocomplete="shipping postal-code" placeholder="">
+            <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+          <div class="checkout-field-wrapper checkout-field-wrapper-shipping-country-code">
+            <label>Country*</label>
+            <span class="checkout-field-wrapper-select-wrapper">
+            <span class="checkout-field-wrapper-select-wrapper-trimmed-value">Viet Nam</span>
+            <select class="checkout-field-wrapper-error" id="shipping_country" autocomplete="shipping country">
+              <option> </option>
+              <option value="AF">Afghanistan</option>
+              <option value="AX">Åland Islands</option>
+              <option value="AL">Albania</option>
+              <option value="DZ">Algeria</option>
+              <option value="AS">American Samoa</option>
+            </select>
+          </span>
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+          </div>
+
+        </div>
+        <div class="checkout-field-use-shipping-as-billing-details">
+          <label>
+            <input type="checkbox">
+            Same billing address
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+    {# 
+      COL 3 -SELECT PAYMENT METHOD 
+    #}
+    <div class="checkout-column-3">
+      {# 
+        COLUMN HEADING 
+      #}
+      <h2 class="checkout-column-heading">
+        <span class="checkout-column-heading-text">
+          <strong>3.SELECT PAYMENT METHOD</strong>
+        </span>
+      </h2>
+
+
+
+      {# 
+        PAYMENT 
+      #}
+      <div class="checkout-payment-method">
+        <div class="checkout-payment-option-list">
+
+          {# 
+            CARD 
+          #}
+          <div class="checkout-payment-option checkout-payment-option-card">
+            <div class="checkout-payment-option-logo">
+              <svg class="checkout-payment-option-logo-img">
+                <use xlink:href="#iconCardFront"></use>
+              </svg>
+            </div>
+            <div class="checkout-payment-option-label">Card</div>
+          </div>
+
+
+
+          {# 
+            PAYPAL 
+          #}
+          <div class="checkout-payment-option checkout-payment-option-paypal">
+            <div class="checkout-payment-option-logo">
+              <svg class="checkout-payment-option-logo-img">
+                <use xlink:href="#iconCardFront"></use>
+              </svg>
+            </div>
+            <div class="checkout-payment-option-label">Paypal</div>
+          </div>
+
+
+
+          {# 
+            COD 
+          #}
+          <div class="custom-control custom-checkbox checkout-payment-option-cod">
+            <input type="checkbox" class="custom-control-input" id="customCheck1" checked="true">
+            <label class="custom-control-label" for="customCheck1">Cash on Delivery</label>
+          </div>
+        </div>
+      </div>
+
+
+
+      {# 
+        ORDER SUMMARY 
+      #}
+      <h2 class="checkout-column-heading">
+        <span class="checkout-column-heading-text">
+          <strong>Order Summary</strong>
+        </span>
+      </h2>
+
+
+
+      <!-- 
+        CART TOTALS 
+      -->  
+      <div class="checkout-cart-totals">
+        <div class="checkout-cart-totals-confirm">Confirm your order</div>
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td>1 x Note Sleeve, Navy</td>
+            <td>
+              <span class="currency">
+                <span class="currency-monetary">$95.00</span>
+                <span class="currency-code">USD</span>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+
+      <!-- 
+        SUBTOTAL 
+      -->  
+      <div class="checkout-totals">
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td>Subtotal</td>
+            <td>
+              <span class="currency">
+                <span class="currency-monetary">$95.00</span>
+                <span class="Currency_Code">USD</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                <rendered-html>Shipping to <strong>Vanuatu</strong></rendered-html>
+              </span>
+              <span class="checkout-totals-total-detail">
+                <rendered-html>Express (2–8 business days, tracking)</rendered-html>
+              </span>
+            </td>
+            <td>
+              <span class="currency">
+                <span class="currency-monetary">$9.00</span>
+                <span class="currency-code">USD</span>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+
+      <!-- 
+        OTHER TOTAL 
+      -->
+      <div class="checkout-order-total">
+        <div>Order total</div>
+        <div>
+          <span class="currency">
+            <span class="currency-monetary">$104</span>
+            <span class="currency-code">USD</span>
+          </span>
+        </div>
+      </div>
+
+
+
+      <!-- 
+        NEWS LETTERS 
+      -->
+      <div class="checkout-newsletter">
+        <label>
+          <input type="checkbox">
+          I’m interested in product releases and news. Sign me up!*
+        </label>
+      </div>
+
+
+
+      <!-- 
+        FINALIZE 
+      -->
+      <div class="checkout-finalize">
+        <button class="checkout-finalize-button">
+          <span>Pay Now</span>
+        </button>
+        <div class="checkout-finalize-disclaimer">
+          *By signing up or placing an order, you are consenting to our privacy policy.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

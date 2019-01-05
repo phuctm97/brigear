@@ -7,6 +7,12 @@ function brigear_preprocess(&$variables, $hook)
     $variables['base_path'] = base_path();
 }
 
+function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
+	if(_starts_with($variables['element']['#id'], 'views-form-commerce-cart-form')) {
+		$suggestions[] = $variables['theme_hook_original'] . '__' . 'checkout';
+	}
+}
+
 function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variables) {
 	$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->getPath();
 }
@@ -103,6 +109,44 @@ function brigear_preprocess_commerce_product(&$variables) {
 	$variables['product_data'] = $product_data;
 }
 
+function brigear_preprocess_commerce_cart_block(&$variables) {
+	$cart_provider = \Drupal::service('commerce_cart.cart_provider');
+
+	// Prepare data
+	$cart_data = array();
+
+	// Get cart
+	$cart = $cart_provider->getCart('default');
+
+	// Item
+	$cart_data['items'] = array();
+	if($cart) {
+		foreach($cart->getItems() as $cart_item) {
+			$variation = $cart_item->getPurchasedEntity();
+			$item = array(
+				'url' => $variation->toUrl(),
+				'product_url' => $variation->getProduct()->toUrl(),
+				'title' => $variation->getProduct()->getTitle(),
+				'main_image' => $variation->get('field_main_image')->entity->uri->value,
+				'color' => $variation->getAttributeValue('attribute_color'),
+				'quantity' => (int) $cart_item->getQuantity(),
+				'unit_price' => $cart_item->getUnitPrice()->toArray()
+			);
+			array_push($cart_data['items'], $item);
+		}
+	}
+
+	// Total
+	$cart_data['subtotal'] = array('number' => 0, 'currency_code' => 'USD');
+	if($cart) {
+		$cart_data['subtotal'] = $cart->getSubtotalPrice()->toArray();
+	}
+
+
+	// Export
+	$variables['cart_data'] = $cart_data;
+}
+
 function _convert_price_to_array_with_symbol($price, $currency_storage) {
 	return array(
 		'number' => $price->getNumber(),
@@ -110,5 +154,10 @@ function _convert_price_to_array_with_symbol($price, $currency_storage) {
 		'symbol' => $currency_storage->load($price->getCurrencyCode())->getSymbol()
 	);
 }
+
+function _starts_with($string, $startString){ 
+    $len = strlen($startString); 
+    return (substr($string, 0, $len) === $startString); 
+} 
 
 ?>
