@@ -1,4 +1,3 @@
-<!-- {{ kint(content) }} -->
 {{ attach_library('brigear/cart-block') }}
 
 <div {{ attributes }}>
@@ -37,87 +36,44 @@
         List Items
       -->
       <div class="checkout-cart-block-listItems">
-        <div class="row checkout-cart-block-listItems-item">
-          <div class="col-4 checkout-cart-block-listItems-item-thumbnail">
-            <img src="https://bellroy.imgix.net/dynamic-assets/W1siZnUiLCJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vcHJvZHVjdC5pbWFnZXMuYmVsbHJveS5jb20vcHJvZHVjdF9pbWFnZXMvaW1hZ2VzLzAwMC8wMDIvODEyL29yaWdpbmFsLzgwNjA3YjI4M2Q4ZWU1ZTlhY2FkODdlZjk5ZDlmODQzODEwMTU2MDY0ZjAwNDdlNThmNjcyYTEyZjkzM2FkODIuanBnIl1d/15fa9fb8571f9366/80607b283d8ee5e9acad87ef99d9f843810156064f0047e58f672a12f933ad82.jpg">
+        {% for item in cart_data.items %}
+          <div class="row checkout-cart-block-listItems-item">
+            <div class="col-4 checkout-cart-block-listItems-item-thumbnail">
+              <a href="{{ item.produ }}">
+                <img src="{{ file_url(item.main_image) }}">
+              </a>
+            </div>
+            <div class="col-8 checkout-cart-block-listItems-item-details">
+              <a href="{{ item.product_url }}">{{ item.title }}</a>
+              <div>
+                <span>Color:</span>
+                <span>{{ item.color.name.value }}</span>
+              </div>
+              <div class="hide">
+                <span>Size:</span>
+                <span></span>
+              </div>
+              <div>
+                <span>Qty:</span>
+                <span class="checkout-cart-block-listItems-item-quantitySelect">
+                  <select title="{{ item.quantity }} x {{ item.unit_price.number|number_format(1) }} {{ item.unit_price.currency_code }}">
+                    <option value="1">{{ item.quantity }}</option>
+                  </select>
+                </span>
+              </div>
+              <div class="checkout-cart-block-listItems-item-price" title="{{ item.quantity }} x {{ item.unit_price.number|number_format(1) }} {{ item.unit_price.currency_code }}">
+                <span class="currency">
+                  <span class="currency-monetary">{{ item.unit_price.number|number_format(1) }}</span>
+                  <span class="currency-code">{{ item.unit_price.currency_code }}</span>
+                </span>
+              </div>
+              <button class="checkout-cart-block-listItems-item-remove">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
           </div>
-          <div class="col-8 checkout-cart-block-listItems-item-details">
-            <a href="#">Note Sleeve</a>
-            <div>
-              <span>Color:</span>
-              <span>Caramel</span>
-            </div>
-            <div class="">
-              <span>Finish:</span>
-              <span>Leather / RFID</span>
-            </div>
-            <div class="hide">
-              <span>Size:</span>
-              <span></span>
-            </div>
-            <div>
-              <span>Qty:</span>
-              <span class="checkout-cart-block-listItems-item-quantitySelect">
-                <select title="1 x $95 USD">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </span>
-            </div>
-            <div class="checkout-cart-block-listItems-item-price" title="1 x $95 USD">
-              <span class="currency">
-                <span class="currency-monetary">$95</span>
-                <span class="currency-code">USD</span>
-              </span>
-            </div>
-            <button class="checkout-cart-block-listItems-item-remove">
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="row checkout-cart-block-listItems-item">
-          <div class="col-4 checkout-cart-block-listItems-item-thumbnail">
-            <img src="https://bellroy.imgix.net/dynamic-assets/W1siZnUiLCJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vcHJvZHVjdC5pbWFnZXMuYmVsbHJveS5jb20vcHJvZHVjdF9pbWFnZXMvaW1hZ2VzLzAwMC8wMDIvODEyL29yaWdpbmFsLzgwNjA3YjI4M2Q4ZWU1ZTlhY2FkODdlZjk5ZDlmODQzODEwMTU2MDY0ZjAwNDdlNThmNjcyYTEyZjkzM2FkODIuanBnIl1d/15fa9fb8571f9366/80607b283d8ee5e9acad87ef99d9f843810156064f0047e58f672a12f933ad82.jpg">
-          </div>
-          <div class="col-8 checkout-cart-block-listItems-item-details">
-            <a href="#">Note Sleeve</a>
-            <div>
-              <span>Color:</span>
-              <span>Caramel</span>
-            </div>
-            <div class="">
-              <span>Finish:</span>
-              <span>Leather / RFID</span>
-            </div>
-            <div class="hide">
-              <span>Size:</span>
-              <span></span>
-            </div>
-            <div class="checkout-cart-block-listItems-item-quantity">
-              <span>Qty:</span>
-              <span class="checkout-cart-block-listItems-item-quantitySelect">
-                <select title="1 x $95 USD">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </span>
-            </div>
-            <div class="checkout-cart-block-listItems-item-price" title="1 x $95 USD">
-              <span class="currency">
-                <span class="currency-monetary">$95</span>
-                <span class="currency-code">USD</span>
-              </span>
-            </div>
-            <button class="checkout-cart-block-listItems-item-remove">
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
+        {% endfor %}
       </div>
 
       <!-- 
@@ -126,8 +82,8 @@
       <div class="checkout-cart-block-subTotal">
         <span class="checkout-cart-block-subTotal-title">Subtotal</span>
         <span class="checkout-cart-block-subTotal-currency currency">
-                <span class="currency-monetary">$95.00</span>
-                <span class="currency-code">USD</span>
+                <span class="currency-monetary">{{ cart_data.subtotal.number }}</span>
+                <span class="currency-code">{{ cart_data.subtotal.currency_code }}</span>
         </span>
       </div>
 
