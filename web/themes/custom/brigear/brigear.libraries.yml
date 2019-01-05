@@ -1,15 +1,15 @@
 popper:
   js:
-    js/popper.js: {minified: true}
+    js/libs/popper.js: {minified: true}
   dependencies:
     - core/jquery
 
 bootstrap:
   css:
     theme:
-      css/bootstrap.css: {minified: true}
+      css/libs/bootstrap.css: {minified: true}
   js:
-    js/bootstrap.js: {minified: true}
+    js/libs/bootstrap.js: {minified: true}
   dependencies:
     - core/jquery
     - brigear/popper
@@ -27,15 +27,26 @@ global-fonts:
 global-styling:
   css:
     theme:
-      css/brigear.css: {}
+      css/global.css: {}
   dependencies:
     - brigear/bootstrap
     - brigear/global-fonts
 
 global-scripts:
   js:
-    js/brigear.js: {}
+    js/global.js: {}
   dependencies:
     - brigear/bootstrap
     - brigear/global-fonts
     - brigear/youtube-player
+
+product-page:
+  css:
+    theme:
+      css/product-page.css: {}
+  js:
+    js/product-page.js: {}
+  dependencies:
+    - brigear/global-styling
+    - brigear/global-scripts
+

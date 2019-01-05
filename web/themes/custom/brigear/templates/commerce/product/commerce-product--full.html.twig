@@ -1,4 +1,6 @@
-<div id="brigear-data" data-page="commerce-product--full" style="display: none">
+{{ attach_library('brigear/product-page') }}
+
+<div id="brigear-data" style="display: none">
 	<div id="brigear-product-variations">
 		{% for variation in product_variations %}
 			<div {{ variation.attributes }}></div>
