@@ -1,2 +1,31 @@
-<div style="background-color: red; width: 100%; height: 300px;">
+<div id="brigear-data" data-product="{{ product_data.id }}" style="display: none">
+	<div id="brigear-product-variations">
+		{% for variation in product_variations %}
+			<div {{ variation.attributes.setAttribute('data-product-attribute-main-image', file_url(variation.main_image)) }}></div>
+		{% endfor %}
+	</div>
+</div>
+<div {{ attributes }} >
+	<div class="product-item-head text-center">
+		<a href="{{ product_data.url }}">
+			<img src="{{ file_url(product_variations[0].main_image) }}">
+		</a>
+		<div class="product-item-color">
+			{% for key, color in product_attributes.attribute_color.data %}
+				<label>
+					<input name="color-{{ product_data.id }}" type="radio" value="{{ key }}" title="{{ color.name.value }}">
+					<span title="{{ color.name.value }}" style="background-color: {{ color.field_color_code.value }};"></span>
+				</label>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="product-item-info">
+		<a href="{{ product_data.url }}">{{ product_entity.title.value }}</a>
+		{% if product_data.only_price %}
+			<p>{{ product_data.only_price.symbol }}{{ product_data.only_price.number|number_format(0) }}</p>
+		{% else %}
+			<p>{{ product_data.min_price.symbol }}{{ product_data.min_price.number|number_format(0) }} - {{ product_data.max_price.symbol }}{{ product_data.max_price.number|number_format(0) }}</p>
+		{% endif %}
+		<p>Lorem ipsum dolor tar sitdimsump</p>
+	</div>
 </div>
