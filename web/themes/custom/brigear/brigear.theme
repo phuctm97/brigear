@@ -7,6 +7,12 @@ function brigear_preprocess(&$variables, $hook)
     $variables['base_path'] = base_path();
 }
 
+function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
+	if($variables['element']['#action'] === '/cart') {
+		$suggestions[] = $variables['theme_hook_original'] . '__' . 'checkout';
+	}
+}
+
 function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variables) {
 	$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->getPath();
 }
