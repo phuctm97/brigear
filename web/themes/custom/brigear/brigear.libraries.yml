@@ -40,6 +40,16 @@ global-scripts:
     - brigear/global-fonts
     - brigear/youtube-player
 
+shop-page:
+  css:
+    theme:
+      css/shop-page.css: {}
+  js:
+    js/shop-page.js: {}
+  dependencies:
+    - brigear/global-styling
+    - brigear/global-scripts
+
 product-page:
   css:
     theme:
