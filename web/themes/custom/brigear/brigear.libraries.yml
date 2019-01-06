@@ -74,4 +74,12 @@ cart-block:
       css/cart-block.css: {}
   dependencies:
     - brigear/global-styling
+    - brigear/global-scripts      
+
+stores-page:
+  css:
+    theme:
+      css/stores-page.css: {}
+  dependencies:
+    - brigear/global-styling
     - brigear/global-scripts        
