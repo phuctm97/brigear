@@ -10,6 +10,10 @@ function brigear_preprocess(&$variables, $hook)
 function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
 	if(_starts_with($variables['element']['#id'], 'views-form-commerce-cart-form')) {
 		$suggestions[] = $variables['theme_hook_original'] . '__' . 'checkout';
+	} 
+	else if(_starts_with($variables['element']['#id'], 'commerce-checkout-flow-multistep')) {
+		kint($variables);
+		$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['element']['#step_id'];
 	}
 }
 
