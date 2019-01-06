@@ -1,0 +1,185 @@
+{{ attach_library('brigear/cart') }}
+<form>
+  <div class="checkout-column-2">
+    {#
+      COLUMN HEADING
+    #}
+    <h2 class="checkout-column-heading">
+        <span class="checkout-column-heading-text">
+          <strong>DELIVERY ADDRESS </strong>
+        </span>
+    </h2>
+
+    <div class="checkout-fields">
+      <div class="checkout-fields-all-required">All fields required</div>
+
+      <div class="checkout-field-section checkout-field-section-shipping">
+
+        <div class="row m-0">
+        {#
+          FIRST NAME
+        #}
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-first-name" style="width: 50%;">
+          <label>First name*</label>
+          <input class="checkout-field-wrapper-error" type="text" id="shipping_first_name"
+                 autocomplete="shipping given-name" placeholder="" style="width: 80%">
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+
+        {#
+          LAST NAME
+        #}
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-last-name" style="width: 50%;">
+          <label>Last name*</label>
+          <input class="checkout-field-wrapper-error" type="text" id="shipping_last_name"
+                 autocomplete="shipping family-name" placeholder="" style="width: 80%">
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+        </div>
+
+        {#
+          EMAIL
+        #}
+        <div class="checkout-field-wrapper checkout-field-wrapper-billing-email">
+          <label>Email address*</label>
+          <input class="checkout-field-wrapper-error" type="text" id="billing-email" autocomplete="billing email"
+                 placeholder="levogiakhang@gmail.com">
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+
+        {#
+          Street ADDRESS
+        #}
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-street-address-one">
+          <label>Street address*</label>
+          <input class="checkout-field-wrapper-error" type="text" id="shipping_street_address_1"
+                 autocomplete="shipping street-address address-line1"
+                 placeholder="e.g. Unit 1, 123 Main Street">
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-street-address-two">
+          <input type="text" id="shipping_street_address_2" autocomplete="shipping address-line2" placeholder="">
+        </div>
+
+
+        {#
+          City
+        #}
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-city">
+          <label>Province</label>
+          <input class="checkout-field-wrapper-error" type="text" id="shipping_city"
+                 autocomplete="shipping address-level2" placeholder="">
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+
+        {#
+          STATE
+        #}
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-region">
+          <label>District*</label>
+          <span class="checkout-field-wrapper-select-wrapper">
+            <span class="checkout-field-wrapper-select-wrapper-trimmed-value"> </span>
+            <select class="checkout-field-wrapper-error" id="shipping_state" autocomplete="shipping address-level1">
+              <option> </option>
+              <option value="44">1</option>
+              <option value="72">2</option>
+              <option value="30">Thử đức</option>
+              <option value="73">Phú Nhuận</option>
+              <option value="65">Bình thạnh</option>
+              <option value="71">Tân Bình</option>
+            </select>
+          </span>
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+        <div class="checkout-field-wrapper checkout-field-wrapper-shipping-postcode">
+          <label>Postal code*</label>
+          <input class="checkout-field-wrapper-error" type="text" id="shipping_postcode"
+                 autocomplete="shipping postal-code" placeholder="">
+          <div class="hide checkout-field-wrapper-error-message">This is a required field.</div>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="row m-0 mt-5">
+      <button class="form-control button-control" style="width: 20%; margin: 0 auto;">Continue to review</button>
+    </div>
+  </div>
+  {#
+  COL 3 -SELECT PAYMENT METHOD
+#}
+  <div class="checkout-column-3">
+    {#
+      ORDER SUMMARY
+    #}
+    <h2 class="checkout-column-heading">
+        <span class="checkout-column-heading-text">
+          <strong>Order Summary</strong>
+        </span>
+    </h2>
+
+
+    <!--
+      CART TOTALS
+    -->
+    <div class="checkout-cart-totals">
+      <div class="checkout-cart-totals-confirm">Confirm your order</div>
+      <table cellpadding="0" cellspacing="0">
+        <tr>
+          <td>1 x Note Sleeve, Navy</td>
+          <td>
+              <span class="currency">
+                <span class="currency-monetary">$95.00</span>
+                <span class="currency-code">USD</span>
+              </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!--
+      SUBTOTAL
+    -->
+    <div class="checkout-totals">
+      <table cellpadding="0" cellspacing="0">
+        <tr>
+          <td>Subtotal</td>
+          <td>
+              <span class="currency">
+                <span class="currency-monetary">$95.00</span>
+              </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <rendered-html><strong>Total</strong></rendered-html>
+          </td>
+          <td>
+              <span class="currency">
+                <span class="currency-monetary">
+                  <rendered-html><strong>$95.00</strong></rendered-html>
+                </span>
+              </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!--
+      Coupon
+    -->
+    <div class="row checkout-field-wrapper checkout-field-wrapper-coupon-code">
+      <label class="col-4">Coupon code:</label>
+      <input class="col-8 checkout-field-wrapper-error" type="text" id="coupon_code"
+             placeholder="">
+    </div>
+  </div>
+</form>
