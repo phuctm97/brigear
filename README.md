@@ -1,3 +1,5 @@
+<img src="logo.png" height="64px" align="left">
+
 # Brigear E-commerce site
 
 A Drupal + Commerce 2.x example e-commerce site.
