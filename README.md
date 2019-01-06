@@ -28,14 +28,14 @@ Next, setup database for the project:
 - Go to `brigear-dir/dump/`.
 - Locate file `database.sql.zip` which is compressed zip file of `database.sql` database dump file.
 - Setup a new database on your environment and import the dump file using your preferable tools (*phpmyadmin* is recommended).
-- Update settings in your `brigear-dir/` to use your newly setup database (in file `brigear-dir/web/default/settings.php`).
+- Update settings in your `brigear-dir/` to use your newly setup database (in file `brigear-dir/web/sites/default/settings.php` or `brigear-dir/web/sites/<your-domain>/settings.php`).
 
 Now you've almost done, next extract some required dump files to your project:
 
 - Go to `brigear-dir/dump/`.
 - Locate file `web.modules.zip` and `web.sites.zip`.
 - Extract `web.modules.zip` to `brigear-dir/web/modules/` (`web.modules.zip` contains some code changes in contributed drupal modules).
-- Extract `web.sites.zip` to `brigear-dir/web/sites/default/` and `brigear-dir/web/sites/<your-domain-name>/` (only default if you are running in localhost).
+- Extract `web.sites.zip` to `brigear-dir/web/sites/default/` and `brigear-dir/web/sites/<your-domain>/` (only default if you are running in localhost).
 
 Done! Brigear e-commerce site is now up on your environment, you can check it out by going to your domain.
 
