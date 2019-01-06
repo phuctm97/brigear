@@ -826,3 +826,20 @@ tr {
   color: #8a8a8a;
 
 }
+
+.checkout-form-complete {
+  
+}
+
+.checkout-form-complete-header {
+  font-size: 5rem;
+}
+
+.checkout-form-complete-header span {
+  margin: 0 auto;
+}
+
+.checkout-form-complete-message span {
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
