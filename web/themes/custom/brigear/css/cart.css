@@ -851,6 +851,7 @@ tr {
   margin: 0px 1.5% 5%;
   border: 1px solid lightgray;
   padding: 25px 15px;
+  min-width: 300px;
 }
 
 .checkout-car-information > h2{
