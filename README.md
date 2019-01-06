@@ -6,6 +6,8 @@ A Drupal + Commerce 2.x example e-commerce site.
 
 Based on [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project).
 
+
+
 ## Installation
 
 First clone/download the repo to your local environment.
@@ -36,3 +38,51 @@ Now you've almost done, next extract some required dump files to your project:
 - Extract `web.sites.zip` to `brigear-dir/web/sites/default/` and `brigear-dir/web/sites/<your-domain-name>/` (only default if you are running in localhost).
 
 Done! Brigear e-commerce site is now up on your environment, you can check it out by going to your domain.
+
+
+
+## Common issues
+
+#### Unknown collation `utf8mb4_0900_ai_ci`
+
+This is because your *MySQL instance* is old and has no support for collation `utf8mb4_0900_ai_ci`.
+
+> Solution: before dump `database.sql`, replace all occurrences of `utf8mb4_0900_ai_ci` by `utfbmb4_general_ci`.
+
+#### Drupal start new site installation
+
+This is because you haven't update `settings.php` to use your database. 
+
+> Solution: go to `brigear-dir/web/sites/default/settings.php` (or `brigear-dir/web/sites/<your-domain>/settings.php `) and add database configuration to field `$database`.
+
+#### Missing `$settings['hash_salt']`
+
+This is because you haven't set value for `$settings['hash_salt']` , *Drupal* requires it.
+
+> Solution: go to `brigear-dir/web/sites/default/settings.php` (or `brigear-dir/web/sites/<your-domain>/settings.php `) and set variable `$settings['hash_salt']` to any value that you love.
+
+
+
+## FAQ
+
+#### How to import database using MySQL command line?
+
+> Log into *MySQL shell*:
+>
+> ``` bash
+> mysql -u <username> -p
+> <enter-your-password>
+> ```
+>
+> Create database (if needed):
+>
+> ``` mysql
+> CREATE DATABASE <your-database-name>;
+> ```
+>
+> Import sql file:
+>
+> ``` mysql
+> USE <your-database-name>;
+> SOURCE <sql-file>;
+> ```
