@@ -1,0 +1,10 @@
+<div style="background-color: white; align-items: center;">
+	<div>
+		<a href="{{ path('view.shop.page_1') }}?category={{content.field_icon['#object'].tid.value}}">
+			<img src="{{(file_url(content.field_icon.0['#item'].entity.uri.value))}}"/>
+		</a>
+	</div>
+	<div>
+		<p style="text-align: center">{{content.field_icon['#object'].name.value}}</p>
+	</div>
+</div>

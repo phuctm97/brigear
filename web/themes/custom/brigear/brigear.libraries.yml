@@ -59,6 +59,14 @@ product-page:
   dependencies:
     - brigear/global-styling
     - brigear/global-scripts
+    
+footer:
+  css:
+    theme:
+      css/footer.css: {}
+  dependencies:
+    - brigear/global-styling
+    - brigear/global-scripts
 
 cart:
   css:
