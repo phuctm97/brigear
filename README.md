@@ -1,4 +1,4 @@
-<img src="logo.png" height="64px" align="left">
+<kbd><img src="logo.png" height="90px"/></kbd>
 
 # Brigear E-commerce site
 
