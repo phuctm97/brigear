@@ -19,8 +19,8 @@ function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
 }
 
 function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variables) {
-	if($variables['view']->id() === 'product_category') {
-		$suggestions[] = $variables['theme_hook_original'] . '__product_category';
+	if($variables['view']->id() === 'product_categories') {
+		$suggestions[] = $variables['theme_hook_original'] . '__product_categories';
 	} else {
 		$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->getPath();
 	}

@@ -60,10 +60,10 @@ product-page:
     - brigear/global-styling
     - brigear/global-scripts
 
-product-category:
+product-categories:
   css:
     theme:
-      css/product-category.css: {}
+      css/product-categories.css: {}
   dependencies:
     - brigear/global-styling
     - brigear/global-scripts
