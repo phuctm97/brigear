@@ -8,6 +8,15 @@ Based on [drupal-composer/drupal-project](https://github.com/drupal-composer/dru
 
 
 
+## Requirements
+
+- Web server (Apache/Nginx).
+- PHP 7+.
+- Composer.
+- MySQL 5+.
+
+
+
 ## Installation
 
 First clone/download the repo to your local environment.
@@ -27,7 +36,7 @@ Next, setup database for the project:
 
 - Go to `brigear-dir/dump/`.
 - Locate file `database.sql.zip` which is compressed zip file of `database.sql` database dump file.
-- Setup a new database on your environment and import the dump file using your preferable tools (*phpmyadmin* is recommended).
+- Setup a new database on your environment and import the dump file using your preferable tools (*original mysql command line tool* is recommended).
 - Update settings in your `brigear-dir/` to use your newly setup database (in file `brigear-dir/web/sites/default/settings.php` or `brigear-dir/web/sites/<your-domain>/settings.php`).
 
 Now you've almost done, next extract some required dump files to your project:
@@ -47,7 +56,7 @@ Done! Brigear e-commerce site is now up on your environment, you can check it ou
 
 This is because your *MySQL instance* is old and has no support for collation `utf8mb4_0900_ai_ci`.
 
-> Solution: before dump `database.sql`, replace all occurrences of `utf8mb4_0900_ai_ci` by `utfbmb4_general_ci`.
+> Solution: before dump `database.sql`, replace all occurrences of `utf8mb4_0900_ai_ci` by your supported collation (ex. `utfbmb4_general_ci`).
 
 #### Drupal start new site installation
 
