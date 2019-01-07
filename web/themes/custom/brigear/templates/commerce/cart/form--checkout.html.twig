@@ -1,13 +1,12 @@
 {{ attach_library('brigear/cart') }}
 
-<form class="checkout-layout">
+{{ kint(element.remove_button['#attributes']) }}
 
+<form {{ attributes.addClass('checkout-layout') }}>
   {# HEADING #}
   <div class="checkout-heading">
     <h2> Secure Checkout </h2>
   </div>
-
-
 
   {# 
     MAIN CONTENT 
@@ -52,7 +51,7 @@
                 <span class="currency-code">USD</span>
               </span>
             </div>
-            <button class="checkout-cart-listItems-item-remove">
+            <button {{ remove_button_attributes.addClass('checkout-cart-listItems-item-remove') }}>
               <span></span>
               <span></span>
             </button>
