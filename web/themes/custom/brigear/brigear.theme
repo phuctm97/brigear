@@ -19,6 +19,12 @@ function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
 	}
 }
 
+function brigear_theme_suggestions_views_exposed_form_alter(&$suggestions, $variables) {
+	if(_starts_with($variables['form']['#id'], 'views-exposed-form-shop')) {
+		$suggestions[] = $variables['theme_hook_original'] . '__shop';
+	}
+}
+
 function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variables) {
 	if($variables['view']->id() === 'product_categories') {
 		$suggestions[] = $variables['theme_hook_original'] . '__product_categories';

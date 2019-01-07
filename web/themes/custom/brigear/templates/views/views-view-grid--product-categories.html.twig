@@ -33,14 +33,62 @@
   ]
 %}
 
-<div{{ attributes.addClass(classes) }} style="background-color: #f5f5f5">
-  <div class="subMenu">
-    <ul class="rangeItems">
-		{% for row in items %}
-		    {% for column in row.content %}
-		        {{- column.content -}}
-		    {% endfor %}
-		{% endfor %}
-    </ul>
-	</div>
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="spe-cor">
+    <div class="container">
+        <div class="row">
+            <div id="slider-1" class="carousel carousel-by-item slide my-carousel" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+   
+                  {% set arr = [] %}
+
+                  {% for row in items %}
+                    {% for column in row.content %}
+                      {% set arr = arr|merge([column]) %}
+                    {% endfor %}
+                  {% endfor %}  
+
+                  {% set loopNumber = 0 %}
+                  
+                  {% if (arr|length % 6) == 0 %}
+                    {% set loopNumber = arr|length // 6 %}
+                  {% else %}
+                    {% set loopNumber = arr|length // 6 + 1 %}
+                  {% endif %}  
+
+                  {% for index in 0..(loopNumber - 1) %}
+                    {% set renderItemNumber = 6 %}
+                    {% if (arr|length - index * 6) < 6 %}
+                      {% set renderItemNumber = arr|length - index * 6 %}
+                    {% endif %}
+
+                    {% if index == 0%}
+                        <div class="carousel-item active">
+                          {% for y in 0..(renderItemNumber - 1) %}
+                            {{- arr[y + index * 6].content -}}
+                          {% endfor %}
+                        </div>
+                    {% else %}
+                      <div class="carousel-item">
+                          {% for y in 0..(renderItemNumber - 1) %}
+                            {{- arr[y + index * 6].content -}}
+                          {% endfor %}
+                        </div>  
+                    {% endif %}
+                      
+                  {% endfor %}
+                </div>
+                <a class="carousel-control-prev my-carousel-prev" href="#slider-1" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next my-carousel-next" href="#slider-1" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+

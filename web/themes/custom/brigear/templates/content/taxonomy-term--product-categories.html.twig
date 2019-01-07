@@ -1,9 +1,33 @@
-{{ attach_library('brigear/product-category') }}
+{{ attach_library('brigear/product-categories') }}
 
 
-  <li>
+<!--   <li>
     <a href="{{ path('view.shop.page_1') }}?category={{content.field_icon['#object'].tid.value}}" class="rangeItems__item rangeItems__item--mens-wallets" data-auto-id="true" id="sub_menu_item-link-720-6">
-      <figure><img src="{{(file_url(content.field_icon.0['#item'].entity.uri.value))}}"></figure>
-      <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{content.field_icon['#object'].name.value}}</font></font></span>
+      <figure>
+      	<img src="{{(file_url(content.field_icon.0['#item'].entity.uri.value))}}">
+      </figure>
+      <span>
+      	<font style="vertical-align: inherit;">
+      		<font style="vertical-align: inherit;">{{content.field_icon['#object'].name.value}}</font>
+      	</font>
+      </span>
     </a>
-  </li>
+  </li> -->
+
+
+<div class="col-lg-2 col-md-3 col-sm-4 col-4 taxonomy-product-category">
+	<a href="{{ path('view.shop.page_1') }}?category={{content.field_icon['#object'].tid.value}}" class="rangeItems__item rangeItems__item--mens-wallets" data-auto-id="true" id="sub_menu_item-link-720-6">
+ 		<figure>
+    		<img class="d-block img-fluid" 
+    		 	src="{{(file_url(content.field_icon.0['#item'].entity.uri.value))}}" 
+    		 	alt="First slide">
+    	</figure>
+
+    	<span>
+      		<font style="vertical-align: inherit;">
+      			<font style="vertical-align: inherit;">{{content.field_icon['#object'].name.value}}</font>
+      		</font>
+    	</span>		 
+
+	</a>
+</div>
