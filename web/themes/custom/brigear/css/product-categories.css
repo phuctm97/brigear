@@ -1,39 +1,15 @@
-.subMenu {
-  width: 100%;
-  background: #fff;
-  height: auto;
-  display: flex;
-  border-top: 1px solid #eee;
-  z-index: 1;
+.my-carousel {
+  position: static;
 }
 
-.subMenu ul {
-  display: inline-grid;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  min-height: 100px;
-  overflow-x: scroll;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, minmax(65px, 1fr)) !important;
-  padding: 0 15px;
-  grid-gap: 5px;
-  color: black;
+.carousel-item > div {
+  float: left !important;
+}
+.carousel-by-item [class*="cloneditem-"] {
+  display: none;
 }
 
-/*.subMenu ul.rangeItems .rangeItems__item--pouches {*/
-  /*margin-right: -30px;*/
-/*}*/
-
-/*.subMenu ul.rangeItems .rangeItems__item--key-covers {*/
-  /*margin-right: -15px;*/
-/*}*/
-
-/*.subMenu ul.rangeItems .rangeItems__item--phone-cases {*/
-  /*margin-left: -10px;*/
-/*}*/
-
-.subMenu ul li {
+.taxonomy-product-category {
   height: 100%;
   display: flex;
   min-width: 65px;
@@ -41,7 +17,7 @@
   vertical-align: middle;
 }
 
-.subMenu ul li a {
+.taxonomy-product-category a {
   position: relative;
   display: block;
   height: 100%;
@@ -50,28 +26,20 @@
   padding: 0 3px;
 }
 
-.subMenu ul li a figure {
+.taxonomy-product-category a figure {
   height: 80px;
   padding: 10px 0;
   margin: 0;
   white-space: normal;
 }
 
-.subMenu ul.rangeItems li a figure {
-  height: 64px;
-  padding: 3px 0 7px 0;
-}
-
-.subMenu ul li a figure img {
+.taxonomy-product-category a figure img {
   border-radius: 50%;
+  object-position: center;
   height: 100%;
 }
 
-.subMenu ul.rangeItems li a figure img {
-  border-radius: 0;
-}
-
-.subMenu ul li a span {
+.taxonomy-product-category a span {
   display: block;
   letter-spacing: 1px;
   font-size: 12px;
@@ -80,11 +48,45 @@
   color: #636363;
 }
 
-.subMenu ul li a:hover span {
+.taxonomy-product-category a:hover span {
   color: #C75724;
 }
 
-.subMenu ul li a.active span {
+.taxonomy-product-category a.active span {
   color: #333;
   font-weight: 800;
+}
+
+.my-carousel {
+  position: static;
+  width: 100%;
+}
+
+.my-carousel-prev {
+  background-color: none; 
+  width: 7%;
+}
+
+.my-carousel-prev span {
+}
+
+.my-carousel-next {
+  background-color: none; 
+  width: 7%;
+}
+
+.my-carousel-next span {
+
+}
+
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23e1e1e1' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23e1e1e1' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.container {
+  max-width: 1500px;
 }
