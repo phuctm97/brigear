@@ -37,6 +37,7 @@
   border-radius: 50%;
   object-position: center;
   height: 100%;
+  margin: auto;
 }
 
 .taxonomy-product-category a span {
@@ -60,6 +61,7 @@
 .my-carousel {
   position: static;
   width: 100%;
+  margin: 0 auto 20px;
 }
 
 .my-carousel-prev {
