@@ -60,6 +60,22 @@ product-page:
     - brigear/global-styling
     - brigear/global-scripts
 
+product-categories:
+  css:
+    theme:
+      css/product-categories.css: {}
+  dependencies:
+    - brigear/global-styling
+    - brigear/global-scripts
+    
+footer:
+  css:
+    theme:
+      css/footer.css: {}
+  dependencies:
+    - brigear/global-styling
+    - brigear/global-scripts
+
 cart:
   css:
     theme:
@@ -72,6 +88,14 @@ cart-block:
   css:
     theme:
       css/cart-block.css: {}
+  dependencies:
+    - brigear/global-styling
+    - brigear/global-scripts      
+
+stores-page:
+  css:
+    theme:
+      css/stores-page.css: {}
   dependencies:
     - brigear/global-styling
     - brigear/global-scripts        

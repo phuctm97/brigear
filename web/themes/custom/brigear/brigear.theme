@@ -1,6 +1,7 @@
 <?php 
 
 use Drupal\Core\Template\Attribute;
+use Drupal\views\ViewExecutable;
 
 function brigear_preprocess(&$variables, $hook)
 {
@@ -18,7 +19,11 @@ function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
 }
 
 function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variables) {
-	$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->getPath();
+	if($variables['view']->id() === 'product_categories') {
+		$suggestions[] = $variables['theme_hook_original'] . '__product_categories';
+	} else {
+		$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->getPath();
+	}
 }
 
 function brigear_preprocess_commerce_product(&$variables) {    

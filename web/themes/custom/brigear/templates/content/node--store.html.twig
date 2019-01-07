@@ -1,0 +1,14 @@
+{{ attach_library('brigear/stores-page') }}
+
+<div class="store-container">
+	<div>
+		<img style="width: 100%" src="{{file_url(node.field_cover_image.entity.uri.value)}}">
+	</div>
+	<div style="margin-top: 10px; margin-left: 20px;">
+		<p style="font-weight: bold; font-size: 16px">{{node.field_country.value}}</p>
+	</div>
+	<div style="margin-top: 5px; margin-left: 20px;">
+		<p style="font-size: 24px; font-weight: 100">{{node.title.value}}</p>
+	</div>
+	<div style="height: 5px"><p/></div>
+</div>

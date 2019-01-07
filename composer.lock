@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3fccb46c84c1ee9a692a52ee79e2d56",
+    "content-hash": "4b3d2e34333d7b1559abe3986d85aaee",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2562,6 +2562,53 @@
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "support": {
                 "source": "http://cgit.drupalcode.org/entity_reference_revisions"
+            }
+        },
+        {
+            "name": "drupal/freshchat",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/freshchat",
+                "reference": "8.x-2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/freshchat-8.x-2.2.zip",
+                "reference": "8.x-2.2",
+                "shasum": "2ecb9e35f092c04082654fb7468e89f2797dbc2c"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.2",
+                    "datestamp": "1521385384",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aburrows",
+                    "homepage": "https://www.drupal.org/user/577844"
+                }
+            ],
+            "description": "Allows integration of Freshchat",
+            "homepage": "https://www.drupal.org/project/freshchat",
+            "support": {
+                "source": "http://cgit.drupalcode.org/freshchat"
             }
         },
         {
