@@ -1,9 +1,12 @@
 {{ attach_library('brigear/cart') }}
+
+{{ form }}
+
+
+{#
 <form>
   <div class="checkout-column-2">
-    {#
-      COLUMN HEADING
-    #}
+      <!-- COLUMN HEADING -->
     <h2 class="checkout-column-heading">
         <span class="checkout-column-heading-text">
           <strong>DELIVERY ADDRESS </strong>
@@ -16,9 +19,7 @@
       <div class="checkout-field-section checkout-field-section-shipping">
 
         <div class="row m-0">
-        {#
-          FIRST NAME
-        #}
+          <!-- FIRST NAME -->
         <div class="checkout-field-wrapper checkout-field-wrapper-shipping-first-name" style="width: 50%;">
           <label>First name*</label>
           <input class="checkout-field-wrapper-error" type="text" id="shipping_first_name"
@@ -27,9 +28,7 @@
         </div>
 
 
-        {#
-          LAST NAME
-        #}
+          <!-- LAST NAME -->
         <div class="checkout-field-wrapper checkout-field-wrapper-shipping-last-name" style="width: 50%;">
           <label>Last name*</label>
           <input class="checkout-field-wrapper-error" type="text" id="shipping_last_name"
@@ -39,9 +38,7 @@
 
         </div>
 
-        {#
-          EMAIL
-        #}
+          <!-- EMAIL -->
         <div class="checkout-field-wrapper checkout-field-wrapper-billing-email">
           <label>Email address*</label>
           <input class="checkout-field-wrapper-error" type="text" id="billing-email" autocomplete="billing email"
@@ -50,9 +47,7 @@
         </div>
 
 
-        {#
-          Street ADDRESS
-        #}
+          <!-- Street ADDRESS -->
         <div class="checkout-field-wrapper checkout-field-wrapper-shipping-street-address-one">
           <label>Street address*</label>
           <input class="checkout-field-wrapper-error" type="text" id="shipping_street_address_1"
@@ -66,9 +61,7 @@
         </div>
 
 
-        {#
-          City
-        #}
+          <!-- City -->
         <div class="checkout-field-wrapper checkout-field-wrapper-shipping-city">
           <label>Province</label>
           <input class="checkout-field-wrapper-error" type="text" id="shipping_city"
@@ -77,9 +70,7 @@
         </div>
 
 
-        {#
-          STATE
-        #}
+          <!-- STATE -->
         <div class="checkout-field-wrapper checkout-field-wrapper-shipping-region">
           <label>District*</label>
           <span class="checkout-field-wrapper-select-wrapper">
@@ -112,13 +103,9 @@
       <a class="form-control checkout-form-continue-to-view" style="width: 20%; margin: 0 auto;" href="#">Continue to review</a>
     </div>
   </div>
-  {#
-  COL 3 -SELECT PAYMENT METHOD
-#}
+  <!-- COL 3 -SELECT PAYMENT METHOD -->
   <div class="checkout-column-3">
-    {#
-      ORDER SUMMARY
-    #}
+      <!-- ORDER SUMMARY -->
     <h2 class="checkout-column-heading">
         <span class="checkout-column-heading-text">
           <strong>Order Summary</strong>
@@ -183,3 +170,4 @@
     </div>
   </div>
 </form>
+#}

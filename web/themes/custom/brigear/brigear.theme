@@ -214,6 +214,11 @@ function brigear_form_views_form_commerce_cart_form_default_alter(&$form, $form_
 	unset($form['output'], $form['actions'], $form['edit_quantity'], $form['remove_button']);
 }
 
+function brigear_form_commerce_checkout_flow_multistep_default_alter(&$form, $form_state, $form_id) {
+	kint(Element::getVisibleChildren($form));	
+	kint($form);	
+}
+
 // Product hooks
 function brigear_preprocess_commerce_product(&$variables) {    
     // Services
