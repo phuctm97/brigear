@@ -215,8 +215,142 @@ function brigear_form_views_form_commerce_cart_form_default_alter(&$form, $form_
 }
 
 function brigear_form_commerce_checkout_flow_multistep_default_alter(&$form, $form_state, $form_id) {
-	kint(Element::getVisibleChildren($form));	
-	kint($form);	
+	// if($form['#step_id'] === 'order_information') {
+	// 	$form['container'] = array(
+	// 		'#weight' => -100,
+	// 		'#type' => 'container', '#attributes' => array(
+	// 			'class' => array('checkout-column-2')),
+	// 		'title' => array(
+	// 			'#type' => 'html_tag', '#tag' => 'h2',
+	// 			'0' => array(
+	// 				'#type' => 'html_tag', '#tag' => 'span',
+	// 				'#value' => '<strong>DELIVERY ADDRESS </strong>'
+	// 			)
+	// 		),
+	// 		'checkout_fields' => array(
+	// 			'#type' => 'container', '#attributes' => array(
+	// 				'class' => array('checkout-fields')),
+	// 			'all_field_required' => array(
+	// 				'#type' => 'html_tag', 
+	// 				'#tag' => 'div', 
+	// 				'#attributes' => array(
+	// 					'class' => array('checkout-fields-all-required')),
+	// 				'#value' => 'All fields required'),
+	// 			'section_shipping' => array(
+	// 				'#type' => 'container', '#attributes' => array(
+	// 					'class' => array('checkout-field-section', 'checkout-field-section-shipping')
+	// 				),
+	// 				'name' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('row', 'm-0')
+	// 					),
+	// 					'first_name' => array(
+	// 						'#type' => 'container', '#attributes' => array(
+	// 							'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-first-name'),
+	// 							'style' => 'width: 50%;'
+	// 						),
+	// 						'input' => array(
+	// 							'#type' => 'textfield', '#attributes' => array(
+	// 								'id' => 'shipping_first_name',
+	// 								'class' => array('checkout-field-wrapper-error')
+	// 							),
+	// 							'#title' => 'First name'
+	// 						)
+	// 					),
+	// 					'last_name' => array(
+	// 						'#type' => 'container', '#attributes' =>array(
+	// 							'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-last-name'),
+	// 							'style' => 'width: 50%;'
+	// 						),
+	// 						'input' => array(
+	// 							'#type' => 'textfield', '#attributes' => array(
+	// 								'id' => 'shipping_last_name',
+	// 								'class' => array('checkout-field-wrapper-error')
+	// 							),
+	// 							'#title' => 'Last name'
+	// 						)
+	// 					),
+	// 				),
+	// 				'company' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-billing-email')
+	// 					),
+	// 					'input' => array(
+	// 						'#type' => 'textfield', '#attributes' => array(
+	// 							'id' => 'billing-email',
+	// 							'class' => array('checkout-field-wrapper-error')
+	// 						),
+	// 						'#title' => 'Company'
+	// 					)
+	// 				),
+	// 				'street_address_1' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-street-address-one')
+	// 					),
+	// 					'input' => array(
+	// 						'#type' => 'textfield', '#attributes' => array(
+	// 							'id' => 'shipping_street_address_1',
+	// 							'class' => array('checkout-field-wrapper-error')
+	// 						),
+	// 						'#title' => 'Street address'
+	// 					)
+	// 				),
+	// 				'street_address_2' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-street-address-two')
+	// 					),
+	// 					'input' => array(
+	// 						'#type' => 'textfield', '#attributes' => array(
+	// 							'id' => 'shipping_street_address_2',
+	// 							'class' => array('checkout-field-wrapper-error')
+	// 						)
+	// 					)
+	// 				),
+	// 				'city' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-city')
+	// 					),
+	// 					'input' => array(
+	// 						'#type' => 'textfield', '#attributes' => array(
+	// 							'id' => 'shipping_city',
+	// 							'class' => array('checkout-field-wrapper-error')
+	// 						),
+	// 						'#title' => 'City'
+	// 					)
+	// 				),
+	// 				'province' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-region')
+	// 					),
+	// 					'input' => array(
+	// 						'#type' => 'select', '#attributes' => array(
+	// 							'id' => 'shipping_state',
+	// 							'class' => array('checkout-field-wrapper-error')
+	// 						),
+	// 						'#title' => 'Province',
+	// 						'#options' => array(
+	// 							'0' => 'Thu Duc',
+	// 							'1' => 'Phu Nhuan',
+	// 							'2' => 'Quan 1'
+	// 						)
+	// 					)
+	// 				),
+	// 				'postal_code' => array(
+	// 					'#type' => 'container', '#attributes' => array(
+	// 						'class' => array('checkout-field-wrapper', 'checkout-field-wrapper-shipping-postcode')
+	// 					),
+	// 					'input' => array(
+	// 						'#type' => 'textfield', '#attributes' => array(
+	// 							'id' => 'shipping_postcode',
+	// 							'class' => array('checkout-field-wrapper-error')
+	// 						),
+	// 						'#title' => 'Postal code'
+	// 					)
+	// 				)
+	// 			)
+	// 		)
+	// 	);
+	// }
 }
 
 // Product hooks
