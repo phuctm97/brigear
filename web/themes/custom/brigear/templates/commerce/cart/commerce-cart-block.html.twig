@@ -46,19 +46,14 @@
             <div class="col-8 checkout-cart-block-listItems-item-details">
               <a href="{{ item.product_url }}">{{ item.title }}</a>
               <div>
+              <div>
                 <span>Color:</span>
                 <span>{{ item.color.name.value }}</span>
-              </div>
-              <div class="hide">
-                <span>Size:</span>
-                <span></span>
               </div>
               <div>
                 <span>Qty:</span>
                 <span class="checkout-cart-block-listItems-item-quantitySelect">
-                  <select title="{{ item.quantity }} x {{ item.unit_price.number|number_format(1) }} {{ item.unit_price.currency_code }}">
-                    <option value="1">{{ item.quantity }}</option>
-                  </select>
+                  {{ item.quantity }}
                 </span>
               </div>
               <div class="checkout-cart-block-listItems-item-price" title="{{ item.quantity }} x {{ item.unit_price.number|number_format(1) }} {{ item.unit_price.currency_code }}">
@@ -67,10 +62,7 @@
                   <span class="currency-code">{{ item.unit_price.currency_code }}</span>
                 </span>
               </div>
-              <button class="checkout-cart-block-listItems-item-remove">
-                <span></span>
-                <span></span>
-              </button>
+          </div>
             </div>
           </div>
         {% endfor %}
@@ -82,7 +74,7 @@
       <div class="checkout-cart-block-subTotal">
         <span class="checkout-cart-block-subTotal-title">Subtotal</span>
         <span class="checkout-cart-block-subTotal-currency currency">
-                <span class="currency-monetary">{{ cart_data.subtotal.number }}</span>
+                <span class="currency-monetary">{{ cart_data.subtotal.number|number_format(1) }}</span>
                 <span class="currency-code">{{ cart_data.subtotal.currency_code }}</span>
         </span>
       </div>
