@@ -13,8 +13,13 @@ function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
 		$suggestions[] = $variables['theme_hook_original'] . '__' . 'checkout';
 	} 
 	else if(_starts_with($variables['element']['#id'], 'commerce-checkout-flow-multistep')) {
-		kint($variables);
 		$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['element']['#step_id'];
+	}
+}
+
+function brigear_theme_suggestions_views_exposed_form_alter(&$suggestions, $variables) {
+	if(_starts_with($variables['form']['#id'], 'views-exposed-form-shop')) {
+		$suggestions[] = $variables['theme_hook_original'] . '__shop';
 	}
 }
 
