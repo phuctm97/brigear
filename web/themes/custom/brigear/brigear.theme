@@ -1,8 +1,10 @@
 <?php 
 
 use Drupal\Core\Template\Attribute;
-use Drupal\views\ViewExecutable;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
 
+// Shared hooks
 function brigear_preprocess(&$variables, $hook)
 {
     $variables['base_path'] = base_path();
@@ -13,7 +15,6 @@ function brigear_theme_suggestions_form_alter(&$suggestions, $variables) {
 		$suggestions[] = $variables['theme_hook_original'] . '__' . 'checkout';
 	} 
 	else if(_starts_with($variables['element']['#id'], 'commerce-checkout-flow-multistep')) {
-		kint($variables);
 		$suggestions[] = $variables['theme_hook_original'] . '__' . $variables['element']['#step_id'];
 	}
 }
@@ -26,6 +27,188 @@ function brigear_theme_suggestions_views_view_grid_alter(&$suggestions, $variabl
 	}
 }
 
+// Checkout hooks
+function brigear_form_views_form_commerce_cart_form_default_alter(&$form, $form_state, $form_id) {
+	$form['#attributes']['class'][] = 'checkout-layout';
+
+	// Header
+	$form['checkout_header'] = array(
+		'#weight' => -100, 
+		'#type' => 'container', '#attributes' => array('class' => 'checkout-heading'),
+		'title' => array('#type' => 'html_tag', '#tag' => 'h2', '#value' => 'Secure Checkout')
+	);
+
+	// Main content
+	$cart = $form['output'][0]['#rows'][0]->_relationship_entities['order_items']->getOrder();
+	$form['checkout_columns'] = array(
+		'#weight' => -99,
+		'#type' => 'container', '#attributes' => array('class' => 'checkout-columns'),
+
+		// Col 1 - Review order
+		'container' => array(
+			'#type' => 'container', '#attributes' => array('class' => 'checkout-column-1'),
+
+			// List items
+			'list_items' => array(
+				'#type' => 'container', '#attributes' => array('class' => 'checkout-cart-listItems')
+			),
+
+			// Subtotal
+			'subtotal' => array(
+				'#type' => 'container', '#attributes' => array('class' => 'checkout-subtotal'),
+				'title' => array('#type' => 'html_tag', '#tag' => 'span', '#value' => 'SUBTOTAL'),
+				'price' => array(
+					'#type' => 'container',
+					'number' => array(
+						'#type' => 'html_tag', '#tag' => 'span', '#value' => number_format($cart->getSubtotalPrice()->getNumber(), 2),
+						'#attributes' => array('class' => 'currency-monetary')
+					),
+					'currency_code' => array(
+						'#type' => 'html_tag', '#tag' => 'span', '#value' => $cart->getSubtotalPrice()->getCurrencyCode(),
+						'#attributes' => array('class' => 'currency-code')
+					)
+				)
+			),
+
+			// Total
+		    'total' => array(
+		    	'#type' => 'container', '#attributes' => array('class' => 'checkout-total'),
+				'title' => array('#type' => 'html_tag', '#tag' => 'span', '#value' => 'TOTAL'),
+				'price' => array(
+					'#type' => 'container',
+					'number' => array(
+						'#type' => 'html_tag', '#tag' => 'span', '#value' => number_format($cart->getTotalPrice()->getNumber(), 2),
+						'#attributes' => array('class' => 'currency-monetary')
+					),
+					'currency_code' => array(
+						'#type' => 'html_tag', '#tag' => 'span', '#value' => $cart->getTotalPrice()->getCurrencyCode(),
+						'#attributes' => array('class' => 'currency-code')
+					)
+				)
+		    ),
+
+		    // Clearfix
+		    'clearfix' => array(
+		    	'#type' => 'container', '#attributes' => array('style' => 'clear: both;')
+		    ),
+
+		    'actions' => array(
+		    	'#type' => 'actions',
+		    	'#attributes' => array('class' => array('row'), 'style' => 'margin: 0;'),
+		    	'submit' => array_merge_recursive($form['actions']['submit'], array(
+		    		'#attributes' => array(
+		    			'class' => array('col-2', 'form-control', 'button-control')),
+		    	)),
+		    	'checkout' => array_merge_recursive($form['actions']['checkout'], array(
+		    		'#attributes' => array(
+		    			'class' => array('col-2', 'ml-auto', 'checkout-checkout-button')),
+		    	))
+		    )
+		)
+	);
+
+	// Items
+	foreach($form['output'][0]['#rows'] as $key => $item) {
+		$order = $item->_relationship_entities['order_items'];
+		$variation = $order->getPurchasedEntity();
+		$product = $variation->getProduct();
+
+		$form['checkout_columns']['container']['list_items'][$key] = array(
+			'#type' => 'container', '#attributes' => array(
+				'class' => array('row', 'checkout-cart-listItems-item')),
+			'image' => array(
+				'#type' => 'container', '#attributes' => array(
+					'class' => array('col-3', 'checkout-cart-listItems-item-thumbnail')),
+				'img' => array(
+					'#type' => 'html_tag',
+					'#tag' => 'img',
+					'#attributes' => array('src' => file_create_url($variation->get('field_main_image')->entity->uri->value))
+				)
+			),
+			'details' => array(
+				'#type' => 'container', '#attributes' => array(
+					'class' => array('col-9', 'checkout-cart-listItems-item-details')),
+				'title' => array(
+					'#weight' => 0,
+					'#type' => 'link',
+					'#title' => $product->getTitle(), 
+					'#url' => $product->toUrl()
+				),
+				'color' => array(
+					'#weight' => 1,
+					'#type' => 'container', '#attributes' => array(
+						'class' => array('checkout-cart-listItems-item-details-color')),
+					'title' => array('#type' => 'html_tag', '#tag' => 'span',
+						'#value' => 'Color'.': '),
+					'value' => array('#type' => 'html_tag', '#tag' => 'span',
+						'#value' => $variation->getAttributeValue('attribute_color')->getName())
+				),
+				'quantity' => array(
+					'#weight' => 100,
+					'#type' => 'container', '#attributes' => array(
+						'class' => array('row', 'checkout-cart-listItems-item-quantity')),
+					'title' => array('#type' => 'html_tag', '#tag' => 'span',
+						'#value' => 'Quantity'.': '),
+					'edit_quantity[' . $key . ']' => array_merge($form['edit_quantity'][$key], 
+						array(
+							'#attributes' => array(
+								'class' => array('col-1', 'form-control', 'checkout-cart-listItems-item-quantitySelect')),
+							'#min' => 1, 
+							'#max' => 100,
+							'#default_value' => (int) $order->getQuantity()))
+				),
+				'price' => array(
+					'#weight' => 101,
+					'#type' => 'container', '#attributes' => array(
+						'title' => $order->getQuantity() . ' x ' . number_format($order->getUnitPrice()->getNumber(), 0) . ' ' . $order->getUnitPrice()->getCurrencyCode(),
+						'class' => array('checkout-cart-listItems-item-price')),
+					'container' => array(
+						'#type' => 'html_tag',
+						'#tag' => 'span',
+						'#attributes' => array('class' => 'currency'),
+						'number' => array(
+							'#type' => 'html_tag',
+							'#tag' => 'span',
+							'#attributes' => array('class' => 'currency-monetary'),
+							'#value' => number_format($order->getTotalPrice()->getNumber(), 2)
+						),
+						'currency_code' => array(
+							'#type' => 'html_tag',
+							'#tag' => 'span',
+							'#attributes' => array('class' => 'currency-code'),
+							'#value' => $order->getTotalPrice()->getCurrencyCode()
+						)
+					)
+				),
+				'remove' => array_merge($form['remove_button'][$key], array(
+					'#attributes' => array(
+						'class' => array('checkout-cart-listItems-item-remove')),
+					'#value' => 'X'
+				))
+			)
+		);
+
+		foreach($variation->getAttributeFieldNames() as $attr) {
+			if($attr === 'attribute_color') continue;
+			$attr_value = $variation->getAttributeValue($attr);
+			if(!$attr_value) continue;
+
+			$form['checkout_columns']['container']['list_items'][$key]['details'][$attr] = array(
+				'#weight' => 2,
+				'#type' => 'container',
+				'#attributes' => array('class' => array('checkout-cart-listItems-item-details-finish')),
+				'title' => array('#type' => 'html_tag', '#tag' => 'span',
+					'#value' => $attr_value->getAttribute()->get('label') . ': '),
+				'value' => array('#type' => 'html_tag', '#tag' => 'span',
+					'#value' => $attr_value->getName())
+			);
+		}
+	}
+
+	unset($form['output'], $form['actions'], $form['edit_quantity'], $form['remove_button']);
+}
+
+// Product hooks
 function brigear_preprocess_commerce_product(&$variables) {    
     // Services
 	$currency_storage = \Drupal::entityTypeManager()->getStorage('commerce_currency');
@@ -118,6 +301,7 @@ function brigear_preprocess_commerce_product(&$variables) {
 	$variables['product_data'] = $product_data;
 }
 
+// Cart hooks
 function brigear_preprocess_commerce_cart_block(&$variables) {
 	$cart_provider = \Drupal::service('commerce_cart.cart_provider');
 
@@ -156,6 +340,7 @@ function brigear_preprocess_commerce_cart_block(&$variables) {
 	$variables['cart_data'] = $cart_data;
 }
 
+// Utils
 function _convert_price_to_array_with_symbol($price, $currency_storage) {
 	return array(
 		'number' => $price->getNumber(),
